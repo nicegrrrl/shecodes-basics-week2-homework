@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weather App</title>
+	<link rel="shortcut icon" href="/img/sun.png" type="image/x-icon" />
+	<link rel="stylesheet" href="https://use.typekit.net/zpv5zoe.css">
+	<script src="https://kit.fontawesome.com/ca2692ca00.js" crossorigin="anonymous"></script>
+
+	<style>
+		body {
+			font-family: "clone-rounded-latin", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		header {
+      margin-top: 40px;
+			text-align: center;
+		}
+
+		.iconHeader {
+			color: #F9F54B;
+			font-size: 40px;
+		}
+
+		h1 {
+			font-family: "proxima-nova-condensed", sans-serif;
+			font-weight: 900;
+			font-style: normal;
+			color: #8EA7E9;
+			font-weight: 600;
+			font-size: 40px;
+			margin: 2px;
+		}
+
+		.tempToday {
+			font-family: "proxima-nova-condensed", sans-serif;
+			font-size: 26px;
+			margin: 2px auto 30px auto;
+		}
+
+		.minTempHeader{
+			font-weight: 100px;
+		}
+
+		i {
+			color: #FFACC7;
+		}
+
+		main {
+			text-align: center;
+		}
+
+		.weatherDay {
+			margin: 10px auto;
+			padding: 10px;
+			max-width: 30vw;
+			transition: all 250ms ease-in-out;
+		}
+
+		.weatherDay:hover {
+			background-color: #FFF7E0;
+		}
+
+		.day {
+			font-weight: bold;
+			letter-spacing: 1px;
+		}
+
+		button {
+			font-family: "proxima-nova-condensed", sans-serif;
+			font-weight: 700;
+			margin: 30px;
+			padding: 3px;
+			width: 140px;
+			height: 60px;
+			font-size: 18px;
+			border: none;
+			border-radius: 30px;
+			cursor: pointer;
+			background-color: #8EA7E9;
+			color: white;
+			box-shadow: 3px 3px 10px #BDCDD6;
+			transition: all 200ms ease-in-out;
+		}
+
+		button:hover {
+			background-color: transparent;
+			color: #8EA7E9;
+			border: solid 1px #8EA7E9;
+		}
+
+		footer {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.devAlana {
+			font-family: "bimbo-pro-jumbo", sans-serif;
+			font-weight: 500;
+			font-size: 18px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:link, a:visited {
+			color: #3C4048;
+		}
+
+		a:hover {
+			color: #82CD47;
+		}
+
+		a:active {
+			color: #F6FFDE;
+		}
+
+		.iconFooter {
+			color: #ff47a9;
+		}
+
+	</style>
+
+</head>
+<body>
+	<header>
+			<p><i class="fa-regular fa-sun fa-spin iconHeader"></i></p>
+			<h1>Currently 27°C in Fortaleza</h1>
+			<p class="tempToday">26°C / <strong>30°C</strong></p>
+	</header>
+
+	<main>
+		<section class="weatherDay">
+			<p class="day"><i class="fa-solid fa-cloud-sun"></i> Tomorrow</p>
+			<p>25°C / <strong>31°C</strong></p>
+		</section>
+		<section class="weatherDay">
+			<p class="day"><i class="fa-solid fa-cloud-sun-rain"></i> Monday</p>
+			<p>25°C / <strong>31°C</strong></p>
+		</section>
+		<section class="weatherDay">
+			<p class="day"><i class="fa-regular fa-sun"></i> Tuesday</p>
+			<p>26°C / <strong>31°C</strong></p>
+		</section>
+		<button>Change city</button>
+	</main>
+
+	<footer>
+		<p>💻 coded by </p>
+		<div class="devAlana"><a href="https://github.com/nicegrrrl" target="_blank">Alana Maia</a></div>
+		<i class="fa-solid fa-code iconFooter"></i>
+		<i class="fa-regular fa-face-laugh-wink iconFooter"></i>
+	</footer>
+
+
+  <script>
+
+    function changeIconAndMessage() {
+      let city = prompt("What city do you live in?");
+      let temperature = prompt("What temperature (in °C) is it?");
+
+      let icon = document.getElementsByClassName("iconHeader");
+      let message = document.querySelector("h1");
+
+      if (temperature >= 0) {
+        icon.innerHTML = `<i class="fa-regular fa-face-laugh-beam" style="color: #ff47a9;"></i>`;
+      } else {
+        icon.innerHTML = `<i class="fa-regular fa-face-frown" style="color: #f00f0f;"></i>`;
+      }
+      message.innerHTML = `Currently ${temperature}°C in ${city}`;
+    }
+    
+
+    let changeCityButton = document.querySelector("button");
+    changeCityButton.addEventListener("click", changeIconAndMessage);
+
+  </script>
+</body>
+</html>
